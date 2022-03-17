@@ -1,0 +1,70 @@
+// write your code here
+    int persons, dishes,hamburg,perros,chorizos, salchipapas,thamburg,tperros,tsalchipapas,tchorizos,total;
+    double desc1,tip,desc2,Total,prop;
+    String invalid;
+
+    System.out.print("¿how many people are there?: ");
+    persons= inputData.nextInt();
+    hamburg=0;
+    perros=0;
+    salchipapas=0;
+    chorizos=0;
+    desc1=0;
+    desc2=0;
+    prop=0;
+    while (persons>0) {
+        System.out.println("Menu");
+        System.out.println("1 -Hamburguesa: 10000");
+        System.out.println("2- Perros: 8000");
+        System.out.println("3- Salchipapas: 7000");
+        System.out.println("4- Chorizos: 6000");
+        System.out.print( "Please select your option: ");
+        dishes=inputData.nextInt();
+        switch (dishes){
+            case 1 : hamburg=hamburg+1;
+                break;
+            case 2: perros=perros+1;
+                break;
+            case 3: salchipapas=salchipapas+1;
+                break;
+            case 4: chorizos=chorizos+1;
+                break;
+        }
+        persons=persons-1;
+    }
+            thamburg=hamburg*10000;
+            tperros=perros*8000;
+            tsalchipapas=salchipapas*7000;
+            tchorizos=chorizos*6000;
+
+        System.out.println("your account is: ");
+        if (hamburg>0){
+            System.out.println(hamburg+" Hamburguesas: $"+thamburg);
+        }
+        if (perros>0){
+            System.out.println(perros+" Perros: $"+tperros);
+        }
+        if (salchipapas>0){
+            System.out.println(salchipapas+" Salchipapas: $"+tsalchipapas);
+        }
+        if (chorizos>0){
+            System.out.println(chorizos+"chorizos: $"+tchorizos);
+        }
+        System.out.println("you want to include the tip? 1 for yes or 2 for not: ");
+        tip= inputData.nextInt();
+        total=thamburg+tchorizos+tsalchipapas+tperros;
+        if (tip==1){
+            prop =total*0.10;
+            System.out.println("tip: $"+prop);
+        }
+        if (total>20000){
+            System.out.println("discount of the 10%");
+            desc1=total*0.10;
+        }
+        if (hamburg>1 ||perros>1||salchipapas>1 || chorizos>1){
+            System.out.println("discount of the 5%");
+            desc2= total*0.05;
+        }
+        Total=total-desc1-desc2+prop;
+        System.out.println("TOTAL: $"+total);
+        System.out.println("TOTAL WITH DISCOUNT: $"+Total);
